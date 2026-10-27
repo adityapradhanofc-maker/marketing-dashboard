@@ -1,0 +1,28 @@
+=== DATA CLEANING LOG ===
+Raw rows loaded: 4,593
+
+[1] Dates: converted 276 DD/MM/YYYY values to a single format; dropped 0 unparseable rows
+
+[2] Text: channel spellings 18 -> 6, campaign spellings 48 -> 24
+
+[3] Duplicates: removed 90 exact duplicates and 0 repeated date+campaign rows
+
+[4] Invalid values: fixed 8 negative spend values (sign error, made positive); set 6 rows with clicks > impressions to missing (re-filled in step 5)
+
+[5] Missing values filled (using each campaign's own typical ratio):
+    - clicks: 139 filled
+    - spend: 112 filled
+    - revenue: 90 filled
+    - engagement: 180 filled
+    - reach: 90 filled
+    Method: clicks from CTR, spend from cost-per-click, revenue from revenue-per-conversion, engagement/reach from impressions
+
+[6] Validation checks:
+    - Null values left: 0
+    - Duplicate rows left: 0
+    - Negative numbers left: 0
+    - Clicks > impressions: 0
+    - Channels: ['Email', 'Facebook', 'Google Ads', 'Instagram', 'LinkedIn', 'YouTube']
+    - Date range: 2025-01-09 to 2025-12-30
+
+Clean rows saved: 4,503
